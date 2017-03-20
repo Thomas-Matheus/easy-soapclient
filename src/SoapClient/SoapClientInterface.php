@@ -14,6 +14,7 @@ interface SoapClientInterface
     public function buildClient();
 
     /**
+     * Get return to webservice.
      * @return mixed
      */
     public function buildCall();

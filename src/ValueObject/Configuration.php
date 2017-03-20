@@ -22,21 +22,24 @@ final class Configuration
     private $parameters;
 
     /**
+     * Configuration constructor.
+     * @param string $url
+     * @param string $method
+     * @param array $parameters
+     */
+    public function __construct($url, $method, array $parameters)
+    {
+        $this->url = $url;
+        $this->method = $method;
+        $this->parameters = $parameters;
+    }
+
+    /**
      * @return string
      */
     public function getUrl()
     {
         return $this->url;
-    }
-
-    /**
-     * @param string $url
-     * @return Configuration
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-        return $this;
     }
 
     /**
@@ -48,31 +51,11 @@ final class Configuration
     }
 
     /**
-     * @param string $method
-     * @return Configuration
-     */
-    public function setMethod($method)
-    {
-        $this->method = $method;
-        return $this;
-    }
-
-    /**
      * @return array
      */
     public function getParameters()
     {
         return $this->parameters;
-    }
-
-    /**
-     * @param array $parameters
-     * @return Configuration
-     */
-    public function setParameters($parameters)
-    {
-        $this->parameters = $parameters;
-        return $this;
     }
 
 }
