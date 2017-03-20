@@ -1,5 +1,5 @@
 {
-  "name": "easy-client/easy-client",
+  "name": "easy-soapclient/easy-soapclient",
   "description": "Lib for SoapClient",
   "type": "library",
   "keywords": [
@@ -28,7 +28,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\EasyClient\\": "tests/"
+      "Tests\\EasySoapClient\\": "tests/"
     }
   },
   "scripts": {
