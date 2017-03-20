@@ -1,0 +1,37 @@
+{
+  "name": "easy-client/easy-client",
+  "description": "Lib for SoapClient",
+  "type": "library",
+  "keywords": [
+    "soap",
+    "soap client",
+    "soapclient"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Thomas-Matheus/easy-client",
+  "authors": [
+    {
+      "name": "Thomas Matheus",
+      "email": "thomas.matheus60@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0"
+  },
+  "require-dev": {
+    "codacy/coverage": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "EasyClient\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\EasyClient\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  }
+}
