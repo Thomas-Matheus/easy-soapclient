@@ -8,7 +8,7 @@
     "soapclient"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/Thomas-Matheus/easy-client",
+  "homepage": "https://github.com/Thomas-Matheus/easy-soapclient",
   "authors": [
     {
       "name": "Thomas Matheus",
