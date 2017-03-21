@@ -11,4 +11,5 @@ interface ClientInterface
      * @return mixed
      */
     public function get();
+
 }

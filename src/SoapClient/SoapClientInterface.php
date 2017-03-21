@@ -18,4 +18,5 @@ interface SoapClientInterface
      * @return mixed
      */
     public function buildCall();
+
 }

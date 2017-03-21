@@ -44,4 +44,5 @@ final class Client extends AbstractSoapClient implements ClientInterface
             throw new \InvalidArgumentException('Parameters is empty or is not array');
         }
     }
+
 }
