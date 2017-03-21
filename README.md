@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7090e5cdd4cf4e92971995ff672eb122)](https://www.codacy.com/app/Thomas-Matheus/easy-soapclient?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Thomas-Matheus/easy-soapclient&amp;utm_campaign=Badge_Grade)
+
 # Easy SoapClient
 
 ## Install
