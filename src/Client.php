@@ -41,7 +41,7 @@ final class Client extends AbstractSoapClient implements ClientInterface
         }
 
         if (!is_array($this->configuration->getParameters())) {
-            throw new \InvalidArgumentException('Parameters is empty or is not array');
+            throw new \TypeError('Parameters is empty or is not array');
         }
     }
 
