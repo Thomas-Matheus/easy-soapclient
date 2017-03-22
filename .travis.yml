@@ -17,7 +17,7 @@ before_script:
   - composer install --prefer-dist
 
 script:
- - phpunit --coverage-clover build/logs/clover.xml --configuration ./phpunit.xml.dist ./tests
+ - vendor/bin/phpunit --coverage-clover build/logs/clover.xml --configuration ./phpunit.xml.dist ./tests
 
 after_script:
- - php bin/codacycoverage clover build/logs/clover.xml
+ - php /vendor/bin/codacycoverage clover build/logs/clover.xml
