@@ -18,11 +18,11 @@ class SoapClientTest extends TestCase
 
     protected function setUp()
     {
-        $this->config = (new Configuration(
+        $this->config = new Configuration(
             'http://www.webservicex.net/ConvertTemperature.asmx?WSDL',
             'ConvertTemp',
             [80, 'degreeFahrenheit', 'degreeCelsius']
-        ));
+        );
     }
 
     public function testSoapClientConfigurationStance()
