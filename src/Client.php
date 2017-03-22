@@ -22,7 +22,7 @@ final class Client extends AbstractSoapClient implements ClientInterface
     /**
      * @return mixed
      */
-    public function get()
+    public function consume()
     {
         return $this->buildCall();
     }

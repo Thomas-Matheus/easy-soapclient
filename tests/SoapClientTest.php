@@ -68,7 +68,7 @@ class SoapClientTest extends TestCase
 
     public function testSoapClientResult()
     {
-        $consume = (new Client($this->config))->get();
+        $consume = (new Client($this->config))->consume();
         $this->assertNotEmpty($consume);
     }
 

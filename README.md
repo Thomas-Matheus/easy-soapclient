@@ -17,7 +17,7 @@
   $params = ['arg1', 'arg2', 123];
   
   $config = new Configuration($url, $method, $params);
-  $result = (new Client($config))->get();
+  $result = (new Client($config))->consume();
   print_r($result);
 ```
 
