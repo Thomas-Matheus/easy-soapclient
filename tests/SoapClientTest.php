@@ -100,16 +100,4 @@ class SoapClientTest extends TestCase
         (new Client($config));
     }
 
-    /**
-     * @expectedException \TypeError
-     */
-    public function testSoapClientParamsConfigurationException()
-    {
-        $config = new Configuration(
-            'http://www.webservicex.net/ConvertTemperature.asmx?WSDL',
-            'ConvertTemp',
-            ''
-        );
-        (new Client($config));
-    }
 }
