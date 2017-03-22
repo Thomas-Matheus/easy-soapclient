@@ -7,12 +7,17 @@ php:
   - nightly
   - hhvm
 
+matrix:
+    fast_finish: true
+    allow_failures:
+        - php: nightly
+
 before_script:
   - composer self-update
   - composer install --prefer-dist
 
 script:
-   - phpunit --coverage-clover=coverage.clover --configuration ./phpunit.xml.dist ./tests
+ - phpunit --coverage-clover build/logs/clover.xml --configuration ./phpunit.xml.dist ./tests
 
 after_script:
  - php bin/codacycoverage clover build/logs/clover.xml
