@@ -4,7 +4,11 @@
 <br>
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ba7fc8d5-2156-480c-817c-ed89c13b61ea/big.png)](https://insight.sensiolabs.com/projects/ba7fc8d5-2156-480c-817c-ed89c13b61ea)
 
+<br>
+This is a simple library for consuming webservices.
 ## Install
+
+    
 
 ## Usage
 
