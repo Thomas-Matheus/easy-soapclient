@@ -36,6 +36,12 @@ class SoapClientTest extends TestCase
         $this->assertInstanceOf('SoapClient', $client);
     }
 
+    public function testSoapClientOptionsStance()
+    {
+        $options = (new Options())->get();
+        $this->assertInternalType('array', $options);
+    }
+
     public function testSoapClientStreamContextIsNotEmpty()
     {
         $context = (new StreamContext())->get();
