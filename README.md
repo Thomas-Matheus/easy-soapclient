@@ -8,8 +8,9 @@
 This is a simple library for consuming webservices soap.
 
 ## Install
- 
-
+```composer
+  composer require easy-soapclient/easy-soapclient
+```
 ## Usage
 
 #### Simple usage
