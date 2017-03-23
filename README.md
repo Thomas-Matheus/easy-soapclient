@@ -26,7 +26,7 @@ This is a simple library for consuming webservices soap.
   print_r($result);
 ```
 
-#### Usage using proxy
+#### Usage with Proxy
 
 ```php
   use EasySoapClient\Client;
@@ -44,7 +44,7 @@ This is a simple library for consuming webservices soap.
   print_r($result);
 ```
 
-#### Usage using soap auth
+#### Usage with Auth
 
 ```php
   use EasySoapClient\Client;
