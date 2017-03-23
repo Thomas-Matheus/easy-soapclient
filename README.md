@@ -5,29 +5,62 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ba7fc8d5-2156-480c-817c-ed89c13b61ea/big.png)](https://insight.sensiolabs.com/projects/ba7fc8d5-2156-480c-817c-ed89c13b61ea)
 
 <br>
-This is a simple library for consuming webservices.
+This is a simple library for consuming webservices soap.
 
 ## Install
  
 
 ## Usage
 
+#### Simple usage
 ```php
   use EasySoapClient\Client;
   use EasySoapClient\ValueObject\Configuration;
   
   $url = 'http://my-webservice.com/webservice.php?WSDL';
   $method = 'getClients';
-  $params = ['arg1', 'arg2', 123];
+  $params = ['arg1', 'arg2', [1, 2]];
   
   $config = new Configuration($url, $method, $params);
   $result = (new Client($config))->consume();
   print_r($result);
 ```
 
-## Contributing
+#### Usage using proxy
 
-Please see [CONTRIBUTING]() for details.
+```php
+  use EasySoapClient\Client;
+  use EasySoapClient\ValueObject\Configuration;
+  use EasySoapClient\ValueObject\ProxyOptions;
+  
+  $url = 'http://my-webservice.com/webservice.php?WSDL';
+  $method = 'getClients';
+  $params = ['arg1', 'arg2', [1, 2]];
+  
+  $proxy = new ProxyOptions('your-proxy-host', 3120, 'user', 'password');
+  
+  $config = new Configuration($url, $method, $params, $proxy);
+  $result = (new Client($config))->consume();
+  print_r($result);
+```
+
+#### Usage using soap auth
+
+```php
+  use EasySoapClient\Client;
+  use EasySoapClient\ValueObject\Configuration;
+  use EasySoapClient\ValueObject\AuthOptions;
+  
+  $url = 'http://my-webservice.com/webservice.php?WSDL';
+  $method = 'getClients';
+  $params = ['arg1', 'arg2', [1, 2]];
+  
+  $auth = new AuthOptions('user', 'password');
+  
+  $config = new Configuration($url, $method, $params, null, $auth);
+  $result = (new Client($config))->consume();
+  print_r($result);
+```
 
 ## License
 
