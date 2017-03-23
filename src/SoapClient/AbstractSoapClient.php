@@ -19,9 +19,13 @@ class AbstractSoapClient implements SoapClientInterface
      */
     public function buildClient()
     {
+
         return (new \SoapClient(
             $this->configuration->getUrl(),
-            (new Options())->get()
+            (new Options(
+                $this->configuration->getProxyOptions(),
+                $this->configuration->getAuthOptions())
+            )->get()
         ));
     }
 

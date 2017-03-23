@@ -20,3 +20,4 @@ interface SoapClientInterface
     public function buildCall();
 
 }
+

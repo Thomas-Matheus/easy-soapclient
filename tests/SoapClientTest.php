@@ -5,7 +5,9 @@ namespace Tests\EasySoapClient;
 use EasySoapClient\Client;
 use EasySoapClient\Context\StreamContext;
 use EasySoapClient\Options\Options;
+use EasySoapClient\ValueObject\AuthOptions;
 use EasySoapClient\ValueObject\Configuration;
+use EasySoapClient\ValueObject\ProxyOptions;
 use PHPUnit\Framework\TestCase;
 
 class SoapClientTest extends TestCase
@@ -25,21 +27,44 @@ class SoapClientTest extends TestCase
         );
     }
 
-    public function testSoapClientConfigurationStance()
+    public function testSoapClientConfigurationInstance()
     {
         $this->assertInstanceOf('EasySoapClient\ValueObject\Configuration', $this->config);
     }
 
-    public function testSoapClientStance()
+    public function testSoapClientInstance()
     {
         $client = (new Client($this->config))->buildClient();
         $this->assertInstanceOf('SoapClient', $client);
     }
 
-    public function testSoapClientOptionsStance()
+    public function testSoapClientOptionsInstance()
     {
-        $options = (new Options())->get();
+        $proxy = (new ProxyOptions('localhost', 80, 'easy-soapclient', '123'))->getProxy();
+        $auth = (new AuthOptions('easy-soapclient', 1))->getAuth();
+        $options = (new Options($proxy, $auth));
+
+        $this->assertInstanceOf('EasySoapClient\Options\Options', $options);
+    }
+
+    public function testSoapClientOptionsType()
+    {
+        $proxy = (new ProxyOptions('localhost', 80, 'easy-soapclient', '123'))->getProxy();
+        $auth = (new AuthOptions('easy-soapclient', 1))->getAuth();
+        $options = (new Options($proxy, $auth))->get();
         $this->assertInternalType('array', $options);
+    }
+
+    public function testSoapClientProxyType()
+    {
+        $proxy = (new ProxyOptions('localhost', 80, 'easy-soapclient', '123'))->getProxy();
+        $this->assertInternalType('array', $proxy);
+    }
+
+    public function testSoapClientAuthType()
+    {
+        $auth = (new AuthOptions('easy-soapclient', 1))->getAuth();
+        $this->assertInternalType('array', $auth);
     }
 
     public function testSoapClientStreamContextIsNotEmpty()
@@ -62,7 +87,7 @@ class SoapClientTest extends TestCase
 
     public function testSoapClientOptionsIsNotEmpty()
     {
-        $options = (new Options())->get();
+        $options = (new Options([], []))->get();
         $this->assertNotEmpty($options);
     }
 

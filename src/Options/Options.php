@@ -9,10 +9,36 @@ class Options
 {
 
     /**
-     * Return Soap Options.
-     * @return array
+     * @var array
      */
-    public function get()
+    private $proxyOptions;
+
+    /**
+     * @var array
+     */
+    private $authOptions;
+
+    /**
+     * Options constructor.
+     * @param array $proxyOptions
+     * @param array $authOptions
+     */
+    public function __construct(array $proxyOptions, array $authOptions)
+    {
+        $this->proxyOptions = $proxyOptions;
+        $this->authOptions = $authOptions;
+    }
+
+    private function builderOptions()
+    {
+        return array_merge(
+            $this->defaultOptions(),
+            $this->proxyOptions,
+            $this->authOptions
+        );
+    }
+
+    private function defaultOptions()
     {
         return [
             'cache_wsdl' => WSDL_CACHE_NONE,
@@ -23,4 +49,14 @@ class Options
         ];
     }
 
+    /**
+     * Return Soap Options.
+     * @return array
+     */
+    public function get()
+    {
+        return $this->builderOptions();
+    }
+
 }
+
