@@ -16,51 +16,49 @@ This is a simple library for consuming webservices soap.
 #### Simple usage
 ```php
   use EasySoapClient\Client;
-  use EasySoapClient\ValueObject\Configuration;
+  use EasySoapClient\Configuration;
   
   $url = 'http://my-webservice.com/webservice.php?WSDL';
-  $method = 'getClients';
-  $params = ['arg1', 'arg2', [1, 2]];
   
-  $config = new Configuration($url, $method, $params);
+  $config = new Configuration($url);
   $result = (new Client($config))->consume();
-  print_r($result);
+
+  print_r($result->myFoo('foo'));
+  print_r($result->myBar('bar', 'foo'));
 ```
 
 #### Usage with Proxy
 
 ```php
   use EasySoapClient\Client;
-  use EasySoapClient\ValueObject\Configuration;
-  use EasySoapClient\ValueObject\ProxyOptions;
+  use EasySoapClient\Configuration;
+  use EasySoapClient\ProxyOptions;
   
   $url = 'http://my-webservice.com/webservice.php?WSDL';
-  $method = 'getClients';
-  $params = ['arg1', 'arg2', [1, 2]];
-  
   $proxy = new ProxyOptions('your-proxy-host', 3120, 'user', 'password');
   
-  $config = new Configuration($url, $method, $params, $proxy);
+  $config = new Configuration($url, $proxy);
   $result = (new Client($config))->consume();
-  print_r($result);
+
+  print_r($result->myFoo('foo'));
+  print_r($result->myBar('bar', 'foo'));
 ```
 
 #### Usage with Auth
 
 ```php
   use EasySoapClient\Client;
-  use EasySoapClient\ValueObject\Configuration;
-  use EasySoapClient\ValueObject\AuthOptions;
+  use EasySoapClient\Configuration;
+  use EasySoapClient\AuthOptions;
   
   $url = 'http://my-webservice.com/webservice.php?WSDL';
-  $method = 'getClients';
-  $params = ['arg1', 'arg2', [1, 2]];
-  
   $auth = new AuthOptions('user', 'password');
   
-  $config = new Configuration($url, $method, $params, null, $auth);
+  $config = new Configuration($url, null, $auth);
   $result = (new Client($config))->consume();
-  print_r($result);
+
+  print_r($result->myFoo('foo'));
+  print_r($result->myBar('bar', 'foo'));
 ```
 
 ## License
