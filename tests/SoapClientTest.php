@@ -70,18 +70,6 @@ class SoapClientTest extends TestCase
         $context = (new StreamContext())->get();
         $this->assertNotEmpty($context);
     }
-    
-    public function testSoapClientHasStreamContextAttribute()
-    {
-        $client = (new Client($this->config))->buildClient();
-        $this->assertObjectHasAttribute('_stream_context', $client);
-    }
-
-    public function testSoapClientHasSoapVersionAttribute()
-    {
-        $client = (new Client($this->config))->buildClient();
-        $this->assertObjectHasAttribute('_soap_version', $client);
-    }
 
     public function testSoapClientOptionsIsNotEmpty()
     {
