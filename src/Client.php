@@ -3,7 +3,6 @@
 namespace EasySoapClient;
 
 
-use EasySoapClient\ValueObject\Configuration;
 use EasySoapClient\SoapClient\AbstractSoapClient;
 
 final class Client extends AbstractSoapClient implements ClientInterface
@@ -16,7 +15,7 @@ final class Client extends AbstractSoapClient implements ClientInterface
     public function __construct(Configuration $config)
     {
         $this->configuration = $config;
-        $this->validate();
+        $this->urlValidator();
     }
 
     /**
@@ -24,24 +23,18 @@ final class Client extends AbstractSoapClient implements ClientInterface
      */
     public function consume()
     {
-        return $this->buildCall();
+        return $this->buildClient();
     }
 
     /**
      * @throws \InvalidArgumentException
      */
-    private function validate()
+    private function urlValidator()
     {
-        if (empty($this->configuration->getMethod())) {
-            throw new \InvalidArgumentException('Method is empty!');
-        }
-
-        if (empty($this->configuration->getUrl())) {
+        if (empty($this->configuration->getUrl())
+            || false === filter_var($this->configuration->getUrl(), FILTER_VALIDATE_URL)
+        ) {
             throw new \InvalidArgumentException('Url is empty');
-        }
-
-        if (!is_array($this->configuration->getParameters())) {
-            throw new \TypeError('Parameters is empty or is not array');
         }
     }
 

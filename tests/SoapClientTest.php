@@ -5,9 +5,9 @@ namespace Tests\EasySoapClient;
 use EasySoapClient\Client;
 use EasySoapClient\Context\StreamContext;
 use EasySoapClient\Options\Options;
-use EasySoapClient\ValueObject\AuthOptions;
-use EasySoapClient\ValueObject\Configuration;
-use EasySoapClient\ValueObject\ProxyOptions;
+use EasySoapClient\AuthOptions;
+use EasySoapClient\Configuration;
+use EasySoapClient\ProxyOptions;
 use PHPUnit\Framework\TestCase;
 
 class SoapClientTest extends TestCase
@@ -21,20 +21,18 @@ class SoapClientTest extends TestCase
     protected function setUp()
     {
         $this->config = new Configuration(
-            'http://www.webservicex.net/ConvertTemperature.asmx?WSDL',
-            'ConvertTemp',
-            [80, 'degreeFahrenheit', 'degreeCelsius']
+            'http://www.webservicex.net/ConvertTemperature.asmx?WSDL'
         );
     }
 
     public function testSoapClientConfigurationInstance()
     {
-        $this->assertInstanceOf('EasySoapClient\ValueObject\Configuration', $this->config);
+        $this->assertInstanceOf('EasySoapClient\Configuration', $this->config);
     }
 
     public function testSoapClientInstance()
     {
-        $client = (new Client($this->config))->buildClient();
+        $client = (new Client($this->config))->consume();
         $this->assertInstanceOf('SoapClient', $client);
     }
 
@@ -91,12 +89,6 @@ class SoapClientTest extends TestCase
         $this->assertNotEmpty($options);
     }
 
-    public function testSoapClientCall()
-    {
-        $consume = (new Client($this->config))->buildCall();
-        $this->assertNotEmpty($consume);
-    }
-
     public function testSoapClientResult()
     {
         $consume = (new Client($this->config))->consume();
@@ -110,24 +102,9 @@ class SoapClientTest extends TestCase
     public function testSoapClientUrlConfigurationException()
     {
         $config = new Configuration(
-            '',
-            'ConvertTemp',
-            [80, 'degreeFahrenheit', 'degreeCelsius']
+            ''
         );
-        (new Client($config));
-    }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Method is empty!
-     */
-    public function testSoapClientMethodConfigurationException()
-    {
-        $config = new Configuration(
-            'http://www.webservicex.net/ConvertTemperature.asmx?WSDL',
-            '',
-            [80, 'degreeFahrenheit', 'degreeCelsius']
-        );
         (new Client($config));
     }
 

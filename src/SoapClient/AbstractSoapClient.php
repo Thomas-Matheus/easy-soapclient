@@ -4,7 +4,7 @@ namespace EasySoapClient\SoapClient;
 
 
 use EasySoapClient\Options\Options;
-use EasySoapClient\ValueObject\Configuration;
+use EasySoapClient\Configuration;
 
 class AbstractSoapClient implements SoapClientInterface
 {
@@ -28,16 +28,5 @@ class AbstractSoapClient implements SoapClientInterface
             )->get()
         ));
     }
-
-    /**
-     * @return mixed
-     */
-    public function buildCall()
-    {
-        return $this->buildClient()->__soapCall(
-            $this->configuration->getMethod(),
-            $this->configuration->getParameters()
-        );
-    }
-
 }
+
