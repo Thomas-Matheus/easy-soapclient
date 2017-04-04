@@ -19,9 +19,10 @@ final class Client extends AbstractSoapClient implements ClientInterface
     }
 
     /**
+     * Return values the webservice.
      * @return mixed
      */
-    public function consume()
+    public function getClient()
     {
         return $this->buildClient();
     }

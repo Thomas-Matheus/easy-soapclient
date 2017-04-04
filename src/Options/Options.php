@@ -53,7 +53,7 @@ class Options
      * Return Soap Options.
      * @return array
      */
-    public function get()
+    public function getOptions()
     {
         return $this->builderOptions();
     }

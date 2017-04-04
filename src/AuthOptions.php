@@ -3,7 +3,7 @@
 namespace EasySoapClient;
 
 
-class AuthOptions
+class AuthOptions implements OptionsInterface
 {
 
     /**
@@ -27,7 +27,10 @@ class AuthOptions
         $this->password = $password;
     }
 
-    public function getAuth()
+    /**
+     * @return array
+     */
+    public function get()
     {
         return [
             'login'     => $this->login,

@@ -10,6 +10,6 @@ interface ClientInterface
      * Return values the webservice.
      * @return mixed
      */
-    public function consume();
+    public function getClient();
 
 }

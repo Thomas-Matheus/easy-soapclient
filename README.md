@@ -21,10 +21,10 @@ This is a simple library for consuming webservices soap.
   $url = 'http://my-webservice.com/webservice.php?WSDL';
   
   $config = new Configuration($url);
-  $result = (new Client($config))->consume();
+  $result = (new Client($config))->getClient();
 
-  print_r($result->myFoo('foo'));
-  print_r($result->myBar('bar', 'foo'));
+  print_r($result->webServiceMethodBar('foo'));
+  print_r($result->webServiceMethodFoo('bar', 'foo'));
 ```
 
 #### Usage with Proxy
@@ -38,10 +38,10 @@ This is a simple library for consuming webservices soap.
   $proxy = new ProxyOptions('your-proxy-host', 3120, 'user', 'password');
   
   $config = new Configuration($url, $proxy);
-  $result = (new Client($config))->consume();
+  $result = (new Client($config))->getClient();
 
-  print_r($result->myFoo('foo'));
-  print_r($result->myBar('bar', 'foo'));
+  print_r($result->webServiceMethodFoo('foo'));
+  print_r($result->webServiceMethodBar('bar', 'foo'));
 ```
 
 #### Usage with Auth
@@ -55,10 +55,10 @@ This is a simple library for consuming webservices soap.
   $auth = new AuthOptions('user', 'password');
   
   $config = new Configuration($url, null, $auth);
-  $result = (new Client($config))->consume();
+  $result = (new Client($config))->getClient();
 
-  print_r($result->myFoo('foo'));
-  print_r($result->myBar('bar', 'foo'));
+  print_r($result->webServiceMethodFoo('foo'));
+  print_r($result->webServiceMethodBar('bar', 'foo'));
 ```
 
 ## License

@@ -25,7 +25,7 @@ class AbstractSoapClient implements SoapClientInterface
             (new Options(
                 $this->configuration->getProxyOptions(),
                 $this->configuration->getAuthOptions())
-            )->get()
+            )->getOptions()
         ));
     }
 }

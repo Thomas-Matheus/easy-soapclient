@@ -51,7 +51,7 @@ final class Configuration
     public function getProxyOptions()
     {
         return !is_null($this->proxyOptions)
-            ? $this->proxyOptions->getProxy()
+            ? $this->proxyOptions->get()
             : []
         ;
     }
@@ -62,7 +62,7 @@ final class Configuration
     public function getAuthOptions()
     {
         return !is_null($this->authOptions)
-            ? $this->authOptions->getAuth()
+            ? $this->authOptions->get()
             : []
         ;
     }

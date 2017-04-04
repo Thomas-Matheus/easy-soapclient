@@ -32,14 +32,14 @@ class SoapClientTest extends TestCase
 
     public function testSoapClientInstance()
     {
-        $client = (new Client($this->config))->consume();
+        $client = (new Client($this->config))->getClient();
         $this->assertInstanceOf('SoapClient', $client);
     }
 
     public function testSoapClientOptionsInstance()
     {
-        $proxy = (new ProxyOptions('localhost', 80, 'easy-soapclient', '123'))->getProxy();
-        $auth = (new AuthOptions('easy-soapclient', 1))->getAuth();
+        $proxy = (new ProxyOptions('localhost', 80, 'easy-soapclient', '123'))->get();
+        $auth = (new AuthOptions('easy-soapclient', 1))->get();
         $options = (new Options($proxy, $auth));
 
         $this->assertInstanceOf('EasySoapClient\Options\Options', $options);
@@ -47,21 +47,21 @@ class SoapClientTest extends TestCase
 
     public function testSoapClientOptionsType()
     {
-        $proxy = (new ProxyOptions('localhost', 80, 'easy-soapclient', '123'))->getProxy();
-        $auth = (new AuthOptions('easy-soapclient', 1))->getAuth();
-        $options = (new Options($proxy, $auth))->get();
+        $proxy = (new ProxyOptions('localhost', 80, 'easy-soapclient', '123'))->get();
+        $auth = (new AuthOptions('easy-soapclient', 1))->get();
+        $options = (new Options($proxy, $auth))->getOptions();
         $this->assertInternalType('array', $options);
     }
 
     public function testSoapClientProxyType()
     {
-        $proxy = (new ProxyOptions('localhost', 80, 'easy-soapclient', '123'))->getProxy();
+        $proxy = (new ProxyOptions('localhost', 80, 'easy-soapclient', '123'))->get();
         $this->assertInternalType('array', $proxy);
     }
 
     public function testSoapClientAuthType()
     {
-        $auth = (new AuthOptions('easy-soapclient', 1))->getAuth();
+        $auth = (new AuthOptions('easy-soapclient', 1))->get();
         $this->assertInternalType('array', $auth);
     }
 
@@ -73,13 +73,13 @@ class SoapClientTest extends TestCase
 
     public function testSoapClientOptionsIsNotEmpty()
     {
-        $options = (new Options([], []))->get();
+        $options = (new Options([], []))->getOptions();
         $this->assertNotEmpty($options);
     }
 
     public function testSoapClientResult()
     {
-        $consume = (new Client($this->config))->consume();
+        $consume = (new Client($this->config))->getClient();
         $this->assertNotEmpty($consume);
     }
 

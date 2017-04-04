@@ -3,7 +3,7 @@
 namespace EasySoapClient;
 
 
-class ProxyOptions
+class ProxyOptions implements OptionsInterface
 {
 
     /**
@@ -41,7 +41,10 @@ class ProxyOptions
         $this->password = $password;
     }
 
-    public function getProxy()
+    /**
+     * @return array
+     */
+    public function get()
     {
         return [
             'proxy_host'     => $this->host,
