@@ -2,12 +2,10 @@
 
 namespace EasySoapClient\Options;
 
-
 use EasySoapClient\Context\StreamContext;
 
 class Options
 {
-
     /**
      * @var array
      */
@@ -29,6 +27,9 @@ class Options
         $this->authOptions = $authOptions;
     }
 
+    /**
+     * @return array
+     */
     private function builderOptions()
     {
         return array_merge(
@@ -38,6 +39,9 @@ class Options
         );
     }
 
+    /**
+     * @return array
+     */
     private function defaultOptions()
     {
         return [
@@ -57,6 +61,4 @@ class Options
     {
         return $this->builderOptions();
     }
-
 }
-

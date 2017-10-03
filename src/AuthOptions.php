@@ -2,10 +2,12 @@
 
 namespace EasySoapClient;
 
-
+/**
+ * Class AuthOptions
+ * @package EasySoapClient
+ */
 class AuthOptions implements OptionsInterface
 {
-
     /**
      * @var string
      */
@@ -39,4 +41,3 @@ class AuthOptions implements OptionsInterface
     }
 
 }
-

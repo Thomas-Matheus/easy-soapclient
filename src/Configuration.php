@@ -2,10 +2,12 @@
 
 namespace EasySoapClient;
 
-
+/**
+ * Class Configuration
+ * @package EasySoapClient
+ */
 final class Configuration
 {
-
     /**
      * @var string
      */
@@ -66,6 +68,4 @@ final class Configuration
             : []
         ;
     }
-
 }
-

@@ -2,13 +2,15 @@
 
 namespace EasySoapClient\SoapClient;
 
-
 use EasySoapClient\Options\Options;
 use EasySoapClient\Configuration;
 
+/**
+ * Class AbstractSoapClient
+ * @package EasySoapClient\SoapClient
+ */
 class AbstractSoapClient implements SoapClientInterface
 {
-
     /**
      * @var Configuration
      */
@@ -29,4 +31,3 @@ class AbstractSoapClient implements SoapClientInterface
         ));
     }
 }
-

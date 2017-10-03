@@ -2,12 +2,14 @@
 
 namespace EasySoapClient;
 
-
 use EasySoapClient\SoapClient\AbstractSoapClient;
 
+/**
+ * Class Client
+ * @package EasySoapClient
+ */
 final class Client extends AbstractSoapClient implements ClientInterface
 {
-
     /**
      * Client constructor.
      * @param Configuration $config
@@ -38,6 +40,4 @@ final class Client extends AbstractSoapClient implements ClientInterface
             throw new \InvalidArgumentException('Url is empty');
         }
     }
-
 }
-
