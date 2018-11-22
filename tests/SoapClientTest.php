@@ -5,11 +5,16 @@ namespace Tests\EasySoapClient;
 use EasySoapClient\Client;
 use EasySoapClient\Context\StreamContext;
 use EasySoapClient\Options\Options;
-use EasySoapClient\AuthOptions;
+use EasySoapClient\Options\AuthOptions;
 use EasySoapClient\Configuration;
-use EasySoapClient\ProxyOptions;
+use EasySoapClient\Options\OtherOptions;
+use EasySoapClient\Options\ProxyOptions;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class SoapClientTest
+ * @package Tests\EasySoapClient
+ */
 class SoapClientTest extends TestCase
 {
 
@@ -21,7 +26,7 @@ class SoapClientTest extends TestCase
     protected function setUp()
     {
         $this->config = new Configuration(
-            'http://www.webservicex.net/ConvertTemperature.asmx?WSDL'
+            'http://www.dneonline.com/calculator.asmx?WSDL'
         );
     }
 
@@ -96,4 +101,14 @@ class SoapClientTest extends TestCase
         (new Client($config));
     }
 
+    public function testSoapClientOtherOptions()
+    {
+        $options = (new Options([], []))->getOptions();
+        $this->assertEquals(SOAP_1_2, $options['soap_version']);
+
+        $otherOptions = new OtherOptions(SOAP_1_1);
+        $options = (new Options([], [], $otherOptions->get()))->getOptions();
+
+        $this->assertEquals(SOAP_1_1, $options['soap_version']);
+    }
 }

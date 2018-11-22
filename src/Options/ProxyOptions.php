@@ -1,11 +1,13 @@
 <?php
 
-namespace EasySoapClient;
+namespace EasySoapClient\Options;
 
-
+/**
+ * Class ProxyOptions
+ * @package EasySoapClient
+ */
 class ProxyOptions implements OptionsInterface
 {
-
     /**
      * @var string
      */
@@ -53,6 +55,4 @@ class ProxyOptions implements OptionsInterface
             'proxy_password' => $this->password,
         ];
     }
-    
 }
-

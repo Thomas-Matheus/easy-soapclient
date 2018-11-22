@@ -2,8 +2,10 @@
 
 namespace EasySoapClient\SoapClient;
 
-
-
+/**
+ * Interface SoapClientInterface
+ * @package EasySoapClient\SoapClient
+ */
 interface SoapClientInterface
 {
 
@@ -12,6 +14,4 @@ interface SoapClientInterface
      * @return \SoapClient
      */
     public function buildClient();
-
 }
-

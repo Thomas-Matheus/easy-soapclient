@@ -1,11 +1,13 @@
 <?php
 
-namespace EasySoapClient;
+namespace EasySoapClient\Options;
 
-
+/**
+ * Class AuthOptions
+ * @package EasySoapClient
+ */
 class AuthOptions implements OptionsInterface
 {
-
     /**
      * @var string
      */
@@ -39,4 +41,3 @@ class AuthOptions implements OptionsInterface
     }
 
 }
-

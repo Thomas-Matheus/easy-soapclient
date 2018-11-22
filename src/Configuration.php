@@ -2,10 +2,16 @@
 
 namespace EasySoapClient;
 
+use EasySoapClient\Options\AuthOptions;
+use EasySoapClient\Options\OtherOptions;
+use EasySoapClient\Options\ProxyOptions;
 
+/**
+ * Class Configuration
+ * @package EasySoapClient
+ */
 final class Configuration
 {
-
     /**
      * @var string
      */
@@ -22,19 +28,27 @@ final class Configuration
     private $authOptions;
 
     /**
+     * @var OtherOptions
+     */
+    private $otherOptions;
+
+    /**
      * Configuration constructor.
      * @param string $url
      * @param ProxyOptions $proxyOptions
      * @param AuthOptions $authOptions
+     * @param OtherOptions|null $otherOptions
      */
     public function __construct(
         $url,
         ProxyOptions $proxyOptions = null,
-        AuthOptions $authOptions = null
+        AuthOptions $authOptions = null,
+        OtherOptions $otherOptions = null
     ) {
         $this->url = $url;
         $this->proxyOptions = $proxyOptions;
         $this->authOptions = $authOptions;
+        $this->otherOptions = $otherOptions;
     }
 
     /**
@@ -52,7 +66,7 @@ final class Configuration
     {
         return !is_null($this->proxyOptions)
             ? $this->proxyOptions->get()
-            : []
+            : [ ]
         ;
     }
 
@@ -63,9 +77,18 @@ final class Configuration
     {
         return !is_null($this->authOptions)
             ? $this->authOptions->get()
-            : []
+            : [ ]
         ;
     }
 
+    /**
+     * @return array
+     */
+    public function getOtherOptions()
+    {
+        return !is_null($this->otherOptions)
+            ? $this->otherOptions->get()
+            : [ ]
+        ;
+    }
 }
-

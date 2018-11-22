@@ -1,11 +1,13 @@
 <?php
 
-namespace EasySoapClient;
+namespace EasySoapClient\Options;
 
-
+/**
+ * Interface OptionsInterface
+ * @package EasySoapClient
+ */
 interface OptionsInterface
 {
-
     /**
      * @return array
      */

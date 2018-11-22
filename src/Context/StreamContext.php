@@ -5,7 +5,6 @@ namespace EasySoapClient\Context;
 
 class StreamContext
 {
-
     /**
      * Return context for soap client.
      * @return resource
@@ -24,5 +23,4 @@ class StreamContext
             ]
         );
     }
-
 }
