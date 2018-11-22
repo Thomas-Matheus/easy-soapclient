@@ -28,7 +28,7 @@ final class Configuration
     private $authOptions;
 
     /**
-     * @var array
+     * @var OtherOptions
      */
     private $otherOptions;
 
