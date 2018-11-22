@@ -1,6 +1,6 @@
 <?php
 
-namespace EasySoapClient;
+namespace EasySoapClient\Options;
 
 /**
  * Class AuthOptions

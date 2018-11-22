@@ -4,6 +4,10 @@ namespace EasySoapClient\Options;
 
 use EasySoapClient\Context\StreamContext;
 
+/**
+ * Class Options
+ * @package EasySoapClient\Options
+ */
 class Options
 {
     /**
@@ -17,14 +21,21 @@ class Options
     private $authOptions;
 
     /**
+     * @var array
+     */
+    private $otherOptions;
+
+    /**
      * Options constructor.
      * @param array $proxyOptions
      * @param array $authOptions
+     * @param array $otherOptions
      */
-    public function __construct(array $proxyOptions, array $authOptions)
+    public function __construct(array $proxyOptions, array $authOptions, array $otherOptions = array())
     {
         $this->proxyOptions = $proxyOptions;
         $this->authOptions = $authOptions;
+        $this->otherOptions = $otherOptions;
     }
 
     /**
@@ -35,7 +46,8 @@ class Options
         return array_merge(
             $this->defaultOptions(),
             $this->proxyOptions,
-            $this->authOptions
+            $this->authOptions,
+            $this->otherOptions
         );
     }
 
