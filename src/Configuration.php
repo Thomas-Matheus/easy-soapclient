@@ -66,7 +66,7 @@ final class Configuration
     {
         return !is_null($this->proxyOptions)
             ? $this->proxyOptions->get()
-            : []
+            : [ ]
         ;
     }
 
@@ -77,7 +77,7 @@ final class Configuration
     {
         return !is_null($this->authOptions)
             ? $this->authOptions->get()
-            : []
+            : [ ]
         ;
     }
 
@@ -88,7 +88,7 @@ final class Configuration
     {
         return !is_null($this->otherOptions)
             ? $this->otherOptions->get()
-            : []
+            : [ ]
         ;
     }
 }

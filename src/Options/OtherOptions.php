@@ -102,7 +102,7 @@ class OtherOptions implements OptionsInterface
             'local_cert' => $this->localCert,
             'soap_version' => $this->soapVersion,
             'connection_timeout' => $this->connectionTimeout
-        ], [$this, 'filterValuesArray']);
+        ], [ $this, 'filterValuesArray' ]);
     }
 
     /**
