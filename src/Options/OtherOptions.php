@@ -92,7 +92,7 @@ class OtherOptions implements OptionsInterface
      */
     public function get()
     {
-        return array_filter(array(
+        return array_filter([
             'use' => $this->use,
             'uri' => $this->uri,
             'style' => $this->style,
@@ -102,7 +102,7 @@ class OtherOptions implements OptionsInterface
             'local_cert' => $this->localCert,
             'soap_version' => $this->soapVersion,
             'connection_timeout' => $this->connectionTimeout
-        ), [$this, 'filterValuesArray']);
+        ], [$this, 'filterValuesArray']);
     }
 
     /**
