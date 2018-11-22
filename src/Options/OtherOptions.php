@@ -67,7 +67,7 @@ class OtherOptions implements OptionsInterface
      */
     public function __construct(
         $soapVersion = null,
-        $uri =  null,
+        $uri = null,
         $localCert = null,
         $connectionTimeout = null,
         $use = null,
