@@ -54,6 +54,11 @@ class OtherOptions implements OptionsInterface
     private $exceptions;
 
     /**
+     * @var string
+     */
+    private $location;
+
+    /**
      * OtherOptions constructor.
      * @param string $soapVersion
      * @param string $uri
@@ -64,6 +69,7 @@ class OtherOptions implements OptionsInterface
      * @param int $cacheWsdl
      * @param bool $trace
      * @param bool $exceptions
+     * @param null $location
      */
     public function __construct(
         $soapVersion = null,
@@ -74,7 +80,8 @@ class OtherOptions implements OptionsInterface
         $style = null,
         $cacheWsdl = null,
         $trace = null,
-        $exceptions = null
+        $exceptions = null,
+        $location = null
     ) {
         $this->soapVersion = filter_var($soapVersion, FILTER_SANITIZE_STRING);
         $this->uri = filter_var($uri, FILTER_SANITIZE_STRING);
@@ -85,6 +92,7 @@ class OtherOptions implements OptionsInterface
         $this->cacheWsdl = filter_var($cacheWsdl, FILTER_VALIDATE_INT) ? $cacheWsdl : null;
         $this->trace = filter_var($trace, FILTER_VALIDATE_BOOLEAN) ? $trace : null;
         $this->exceptions = filter_var($exceptions, FILTER_VALIDATE_BOOLEAN) ? $exceptions : null;
+        $this->location  = filter_var($location, FILTER_SANITIZE_URL) ? $location : null;
     }
 
     /**
@@ -97,6 +105,7 @@ class OtherOptions implements OptionsInterface
             'uri' => $this->uri,
             'style' => $this->style,
             'trace' => $this->trace,
+            'location' => $this->location,
             'exceptions' => $this->exceptions,
             'cache_wsdl' => $this->cacheWsdl,
             'local_cert' => $this->localCert,
